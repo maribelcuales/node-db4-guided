@@ -32,3 +32,23 @@ Cohorts house a group of students.
 
 Student can go through more than one cohort.
 
+## Mantras
+
+- every table must have a primary key.
+- work o two or three tables at a time.
+- one to many -> Foreign Key
+- the FK goes on the `many` side.
+- many to many -> third table.
+- the (junction) many to many table can have other properties.
+
+## Workflow
+
+- identify entities (nouns) === resources -> tables.
+- identify relationships -> Foreign Keys.
+- identify properties (fields) -> columns.
+
+## Relationships
+
+- one to one. Not as common.
+- one to many. This is it!
+- many to many (fake!).
