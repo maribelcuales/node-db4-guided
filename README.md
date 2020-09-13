@@ -15,3 +15,20 @@ Guided project for **Node DB 4** Module.
 - [ ] type `npm run server` to start the API.
 
 Please follow along as the instructor uses Knex migrations and seeding to create a multi-table database schema.
+
+## Requirements
+
+Manage Students.
+
+Manage Cohorts.
+
+Manage Tracks (iOS, Web, DS).
+
+Cohorts are assemble for a track. Can a cohort belong to more than one track = no.
+
+Track <> Cohorts
+
+Cohorts house a group of students.
+
+Student can go through more than one cohort.
+
