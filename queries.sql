@@ -1,3 +1,12 @@
+orders
+        .integer("client")
+        .unsigned()
+        .notNullable()
+        .references("id") // or .references('clients.id') then remove .inTable()
+        .inTable("clients")
+        .onUpdate("CASCADE") // RESTRICT, DO NOTHING, SET NULL, CASCADE
+        .onDelete("RESTRICT");
+
 select * 
 from orders as o
 join customers as c on o.customer_id = c.customer_id
