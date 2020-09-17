@@ -16,6 +16,15 @@ Guided project for **Node DB 4** Module.
 
 Please follow along as the instructor uses Knex migrations and seeding to create a multi-table database schema.
 
+## Normalization Guidelines
+
+- Each record has a primary key.
+- No fields are repeated.
+- All fields relate directly to the key data.
+- Each field entry contains a single data point.
+- There are no redundant entries.
+
+
 ## Requirements
 
 Manage Students.
