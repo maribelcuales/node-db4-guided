@@ -9,13 +9,25 @@ exports.up = function(knex) {
 
   .createTable('shippers', shippers => {
     shippers.increments(); 
-  })
+  }) 
 
   .createTable('clients', clients => {})
 
   .createTable('products', products => {})
 
-  .createTable('orders', orders => {})
+  .createTable('orders', orders => {
+    orders.increments();
+
+    orders
+      .integer('client')
+      .unsigned()
+      .notNullable()
+      .references('id')  // or .reference('clients.id) then remove .inTable()
+      .inTable('clients'); 
+      .onUpdate('CASCADE')  // RESTRICT, DO NOTHING, SET NULL, CASCADE 
+      .onDelete('RESTRICT');
+  })
+
 
   .createTable('order_shippres', orderShippers => {})
 
