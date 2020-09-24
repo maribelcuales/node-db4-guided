@@ -1,6 +1,7 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable('suppliers', suppliers => {
+  return knex.schema
+  .createTable('suppliers', suppliers => {
     // suppliers.uuid('id').primary();
     suppliers.increments(); 
 
@@ -23,17 +24,37 @@ exports.up = function(knex) {
       .unsigned()
       .notNullable()
       .references('id')  // or .reference('clients.id) then remove .inTable()
-      .inTable('clients'); 
+      .inTable('clients')
       .onUpdate('CASCADE')  // RESTRICT, DO NOTHING, SET NULL, CASCADE 
       .onDelete('RESTRICT');
   })
 
+  .createTable('order_shippres', orderShippers => {
+    orderShippers.increments();
 
-  .createTable('order_shippres', orderShippers => {})
+    orderShippers
+      .integer('order')
+      .unsigned()
+      .notNullable()
+      .references('id')  // or .reference('orders.id) then remove .inTable()
+      .inTable('orders')
+      .onUpdate('CASCADE')  // RESTRICT, DO NOTHING, SET NULL, CASCADE 
+      .onDelete('RESTRICT');
 
-  .createTable('order_products', orderProducts => {})
+    orderShippers
+      .integer('shipper')
+      .unsigned()
+      .notNullable()
+      .references('id')  // or .reference('shippers.id) then remove .inTable()
+      .inTable('shippers') 
+      .onUpdate('CASCADE')  // RESTRICT, DO NOTHING, SET NULL, CASCADE 
+      .onDelete('RESTRICT');    
+  })
+
+  .createTable('order_products', orderProducts => {});
 };
 
 exports.down = function(knex) {
   
 };
+
