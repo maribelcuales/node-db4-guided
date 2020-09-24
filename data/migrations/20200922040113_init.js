@@ -55,6 +55,13 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema
+    .dropTableIfExists('order_products')
+    .dropTableIfExists('order_shippers')
+    .dropTableIfExists('orders')
+    .dropTableIfExists('products')
+    .dropTableIfExists('clients')
+    .dropTableIfExists('shippers')
+    .dropTableIfExists('suppliers');
 };
 
